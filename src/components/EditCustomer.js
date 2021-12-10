@@ -6,6 +6,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import EditIcon from '@mui/icons-material/Edit';
 
 
 function EditCustomer(props) {
@@ -47,9 +48,10 @@ function EditCustomer(props) {
   }
   return (
     <div>
-      <Button size="small" onClick={handleClickOpen}>
-        Edit
-      </Button>
+      <EditIcon fontSize="small" 
+      color="inherit" 
+      onClick={handleClickOpen}
+      />
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Edit Customer</DialogTitle>
         <DialogContent>
