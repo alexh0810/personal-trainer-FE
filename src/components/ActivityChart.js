@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { groupBy, mapValues, sumBy } from 'lodash';
-import { Chart } from "react-google-charts"
+
 
 
 

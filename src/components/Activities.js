@@ -1,7 +1,9 @@
 import ActivityChart from "./ActivityChart";
-import {React} from react; 
+import React, { useState, useEffect } from 'react';
+import { groupBy, mapValues, sumBy } from 'lodash';
 
-const fetchActivities = () => {
+const Activities = () => {
+    const [chartData, setChartData] = useState([]);
     fetch("https://customerrest.herokuapp.com/gettrainings")
     .then((response) => response.json())
         .then((data) => calculateDuration(data))
@@ -35,4 +37,4 @@ const fetchActivities = () => {
 
      }
 
-     export default fetchActivities; 
+     export default Activities; 

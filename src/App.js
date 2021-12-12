@@ -10,8 +10,7 @@ import TrainingCalendar from './components/Calendar';
 import CustomerTable from './components/CustomerTable';
 import TrainingTable from './components/TrainingTable';
 import NavBar from './components/NavBar';
-import ActivityChart from './components/ActivityChart'
-
+import Activities from './components/Activities';
 
 
 
@@ -29,7 +28,7 @@ function App() {
            </Route>
            <Route path="/calendar" component={TrainingCalendar}>
            </Route>
-           <Route path="/chart" component={ActivityChart}></Route>
+           <Route path="/chart" component={Activities}></Route>
          </Switch>
     </div>
     </Router>
