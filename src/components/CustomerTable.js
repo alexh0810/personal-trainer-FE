@@ -78,6 +78,7 @@ useEffect(() => fetchData(), []);
     {
         field: 'links[0].href', 
         editable: 'never',
+        export: false,
         render: params => <AddTrainingToCustomer addTrainingToCustomer={addTrainingToCustomer} row={params}/>
     },
     { title: 'Firstname', field: 'firstname' },
