@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { groupBy, mapValues, sumBy } from 'lodash';
 
 
 
 
 const ActivityChart  = (props) => {
 
-  const data = props.data;
+  const data = props.chartData;
 
     return (
     <ResponsiveContainer width="100%" aspect={3}>
@@ -21,13 +20,13 @@ const ActivityChart  = (props) => {
             left: 20,
             bottom: 5,
           }}
-          barSize={20}
+          barSize={50}
         >
           <XAxis dataKey="name"/>
           <YAxis/>
           <Tooltip/>
           <Legend />
-          <Bar dataKey="value" fill="#8884cd8"/>
+          <Bar dataKey="value" fill="#113CFC"/>
         </BarChart>
         </ResponsiveContainer>
     )

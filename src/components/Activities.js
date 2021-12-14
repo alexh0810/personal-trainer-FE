@@ -3,20 +3,25 @@ import React, { useState, useEffect } from 'react';
 import { groupBy, mapValues, sumBy } from 'lodash';
 
 const Activities = () => {
-    const [chartData, setChartData] = useState([]);
-    fetch("https://customerrest.herokuapp.com/gettrainings")
-    .then((response) => response.json())
+    const [chartData, setChartData] = useState([])
+
+    const fetchActivites = () => {
+        fetch("https://customerrest.herokuapp.com/gettrainings")
+        .then((response) => response.json())
         .then((data) => calculateDuration(data))
         .then((data) => setChartData(data))
         .catch((err) => console.error(err));
     }
 
+    useEffect(() => fetchActivites(), [])
+    
+
      const calculateDuration = (trainings) => {
-    const trainingByActivity = groupBy(trainings, 'activity');
+    const trainingByActivity = groupBy(trainings, 'activity')
     console.log(trainingByActivity);
     const activityObj = {}
     for (const key in trainingByActivity) {
-        activityObj[key] = sumBy(trainingByActivity[key], 'duration');
+        activityObj[key] = sumBy(trainingByActivity[key], 'duration')
     }
     console.log(activityObj);
 
@@ -27,10 +32,12 @@ const Activities = () => {
     }
     
     console.log(data)
+    return data; 
+    }
   
     return (
         <div>
-            <ActivityChart chartData={data} />
+            {chartData && <ActivityChart chartData={chartData} />}
         </div>
 
     )
