@@ -23,6 +23,7 @@ import Card from '@mui/material/Card';
 
 
 
+
 function CustomerTable() {
 
     const tableIcons = {
@@ -76,6 +77,7 @@ useEffect(() => fetchData(), []);
   const [columns, setColumns] = useState([
     {
         field: 'links[0].href', 
+        editable: 'never',
         render: params => <AddTrainingToCustomer addTrainingToCustomer={addTrainingToCustomer} row={params}/>
     },
     { title: 'Firstname', field: 'firstname' },
