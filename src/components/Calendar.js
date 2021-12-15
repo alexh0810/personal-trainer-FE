@@ -9,7 +9,8 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 const TrainingCalendar = props => {
     const localizer = momentLocalizer(moment)
      const [trainings, setTrainings] = useState([]);
-    useEffect(() => fetchData(), []);
+
+     useEffect(() => fetchData(), [])
     const fetchData = () => {
         fetch("https://customerrest.herokuapp.com/gettrainings")
           .then((response) => response.json())
@@ -17,15 +18,19 @@ const TrainingCalendar = props => {
           .catch((err) => console.error(err));
       }
 
+     
+
     
-        const eventList = trainings.map(event => ({
+        const eventList = trainings.filter(event => event.customer != null)
+        .map(event => ({
           id: event.id,
           title: `${event.activity} \ ${event.customer.firstname} ${event.customer.lastname}`,
           start: moment(event.date).toDate(), 
           end: moment(event.date).add(event.duration, 'minutes').toDate()}))
 
           console.log(eventList);
-    
+          
+        
     return(
     <div>
       <Calendar
